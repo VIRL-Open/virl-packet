@@ -163,7 +163,8 @@ if __name__ == '__main__':
         sys.exit(1)
 
     # Extract the UUID from the response JSON
-    uuid = (r.json()["id"])
+    if r.status_code == 201:
+      uuid = (r.json()["id"])
 
     # Show some output, or not.
     if arguments['--q']:
